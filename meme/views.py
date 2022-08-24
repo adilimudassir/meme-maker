@@ -34,9 +34,4 @@ class CreateSubmissionAPIView(generics.CreateAPIView):
     """Lists all Memes from the database"""
     queryset = Submission.objects.all()
     serializer_class = SubmissionSerializer
-    
-    
-    def post(self, request, *args, **kwargs):
-        instance = Meme.objects.get(pk=kwargs['pk'])
-        return self.create(request, *args, **kwargs)
 
