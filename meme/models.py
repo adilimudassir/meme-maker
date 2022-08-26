@@ -5,7 +5,7 @@ from django.db import models
 class Meme(models.Model):
     name = models.TextField(null=False, blank=False)
     tags = models.TextField(null=False, blank=False)
-    image = models.TextField(null=False, blank=False)
+    image = models.ImageField(upload_to="memes/%Y/%M/%D/", null=False, blank=False)
     topText = models.TextField(null=True, blank=True)
     bottomText = models.TextField(null=True, blank=True)
     detail = models.TextField(null=True, blank=True)

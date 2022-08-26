@@ -1,6 +1,7 @@
 
 from rest_framework import generics
 
+from rest_framework.parsers import FormParser, MultiPartParser
 from meme.serializers import MemeSerializer, SubmissionSerializer
 from meme.models import Meme, Submission
 
@@ -29,6 +30,7 @@ class ListSubmissionAPIView(generics.ListAPIView):
     """Lists all Memes from the database"""
     queryset = Submission.objects.all()
     serializer_class = SubmissionSerializer
+    parser_classes = (FormParser, MultiPartParser)
 
 class CreateSubmissionAPIView(generics.CreateAPIView):
     """Lists all Memes from the database"""
